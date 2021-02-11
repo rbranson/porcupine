@@ -16,7 +16,7 @@ func CheckOperationsTimeout(model Model, history []Operation, timeout time.Durat
 
 // timeout = 0 means no timeout
 // if this operation times out, then a false positive is possible
-func CheckOperationsVerbose(model Model, history []Operation, timeout time.Duration) (CheckResult, linearizationInfo) {
+func CheckOperationsVerbose(model Model, history []Operation, timeout time.Duration) (CheckResult, LinearizationInfo) {
 	return checkOperations(model, history, true, timeout)
 }
 
@@ -34,6 +34,6 @@ func CheckEventsTimeout(model Model, history []Event, timeout time.Duration) Che
 
 // timeout = 0 means no timeout
 // if this operation times out, then a false positive is possible
-func CheckEventsVerbose(model Model, history []Event, timeout time.Duration) (CheckResult, linearizationInfo) {
+func CheckEventsVerbose(model Model, history []Event, timeout time.Duration) (CheckResult, LinearizationInfo) {
 	return checkEvents(model, history, true, timeout)
 }

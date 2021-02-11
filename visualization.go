@@ -30,7 +30,7 @@ type partitionVisualizationData struct {
 
 type visualizationData = []partitionVisualizationData
 
-func computeVisualizationData(model Model, info linearizationInfo) visualizationData {
+func computeVisualizationData(model Model, info LinearizationInfo) visualizationData {
 	model = fillDefault(model)
 	data := make(visualizationData, len(info.history))
 	for partition := 0; partition < len(info.history); partition++ {
@@ -86,7 +86,7 @@ func computeVisualizationData(model Model, info linearizationInfo) visualization
 	return data
 }
 
-func Visualize(model Model, info linearizationInfo, output io.Writer) error {
+func Visualize(model Model, info LinearizationInfo, output io.Writer) error {
 	data := computeVisualizationData(model, info)
 	jsonData, err := json.Marshal(data)
 	if err != nil {
@@ -99,7 +99,7 @@ func Visualize(model Model, info linearizationInfo, output io.Writer) error {
 	return nil
 }
 
-func VisualizePath(model Model, info linearizationInfo, path string) error {
+func VisualizePath(model Model, info LinearizationInfo, path string) error {
 	f, err := os.Create(path)
 	if err != nil {
 		return err
